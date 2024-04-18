@@ -1,0 +1,202 @@
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+}
+/*general body styling*/
+body{
+    font-family: Arial, Helvetica, sans-serif;
+}
+/*general list styling*/
+li{
+    list-style: none;
+    padding: 0 20px;
+    align-self: center;
+}
+/*whole db screen container*/
+.db-screen{
+    display: flex;
+    height: 100vh;
+}
+/*dash nav sidebar column container - left side of dash screen*/
+.db-screen aside{
+    flex: 1;
+    background-image: linear-gradient(to right, darkorange, rgb(255, 51, 0));
+    color: white;
+    justify-content: space-evenly;
+    padding-top: 0.75rem;
+    /*min-height: 100;*/
+}
+/*dash main content column container - right side of dash screen*/
+.db-screen main{
+    flex: 4;
+    padding: 1rem;
+    background: lightgrey;
+}
+/*dash nav header*/
+.dnav-cont h2{
+    margin-bottom: 0.5rem;
+    text-align: center;
+    font-size: x-large;
+    font-weight: bolder;
+    text-decoration: underline;
+}
+/*dash nav box container - inside nav sidebar column*/
+.dnav-box{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+/*style list of menu nav links*/
+.dnav-box ul li{
+    padding: 2px;
+    border-radius: 4px;
+    width: 100%;
+}
+.dnav-box ul li:hover{
+    background-color: darkslategrey;
+    border-radius: 4px;
+}
+/*logout button styles*/
+.logout-butt{
+    width: 100%;
+    background-color: darkslategrey;
+    padding: 8px;
+    align-self: flex-end;
+}
+.logout-butt:hover{
+    background-color: white;
+    color: darkslategrey;
+    font-weight: bolder;
+}
+/*toggle icon styling*/
+.toggle{
+    font-size: 30px;
+    cursor: pointer;
+    display: none;
+}
+#togbut{
+    display:none;
+}
+/*dashboard main content container*/
+.db-maincont{
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    align-items: stretch;
+    align-content: stretch;
+}
+/*dash main content block container - rows inside main container*/
+.db-mainblock{
+    flex: 2;
+    padding: 10px; 
+    margin: 4px;
+    gap: 3px;
+    display: flex;
+    flex-flow: column;
+}
+/*dash main content inner section blocks*/
+.db-mainblock section{
+    flex: 1;
+    align-self: stretch;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: rgb(59, 59, 59);
+    display: flex;
+    flex-direction: column;
+}
+.db-mainblock section h2{
+    font-size: x-large;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+/*styles for the user info displayed in first 2 dash sections*/
+.db-mainuserinfo{
+    border-style: solid;
+    border-radius: 8px;
+    align-self: stretch;
+    padding: 0.5rem;
+    border-color: lightgray;
+    border-width: 1px;
+    margin-bottom: 0.75rem;
+}
+/*styles for the bottom ladder section on the dash*/
+.lad-spanblock{
+    order: 3;
+    width: 100%;
+    padding: 10px; 
+    margin: 4px;
+    gap: 3px;
+    display: flex;
+    flex-flow: column;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: stretch;
+    justify-content:stretch;
+}
+.lad-spanblock section{
+    align-self: stretch;
+    flex: 1;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 8px;
+}
+.lad-spanblock section h2{
+    font-size: x-large;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+/*blue ladder button styles*/
+.blu-button{
+    background-color: rgb(0, 119, 255);
+    color: white;
+    font-weight:600; 
+    padding: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.blu-button:hover{
+    background-color: blue;
+}
+
+/*responsive mobile styles*/
+@media screen and (max-width: 845px){
+    /*menu toggle button on mobile*/
+    .toggle{
+        /*display: block;*/
+        order:1;
+        margin: 10px;
+        padding: 10px;
+    }
+    /*resize main dash sections to align vertically & span 100% width*/
+    .db-screen, .db-mainblock, .db-maincont{
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    /*reorder nav menu under toggle button*/
+    .dnav-box{
+        order: 2;
+    }
+    /*resize menu nav container to span width of space*/
+    .dnav-cont{
+        width: 100%;
+    }
+    /*dont show nav menu items at first*/
+    .dnav-box ul{
+        justify-content: center;
+        /*display: none;*/
+    }
+    /*
+    #togbut:checked ~ ul {
+        right: 0;
+    }
+    */
+    /*reorder main content container to be last after nav menu*/
+    .db-maincont{
+        order:3;
+    }
+}
